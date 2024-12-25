@@ -1,0 +1,17 @@
+On TextForm:
+By default, when you click on an <a> tag, it will try to navigate to the URL specified in the href attribute (in this case, /). Since you are not actually interested in navigating, but only want to update the font style, e.preventDefault() is used to stop the page from refreshing or navigating to the href.
+
+Without e.preventDefault(), clicking the link would refresh the page or trigger a navigation, which you likely don't want in a React SPA (Single Page Application).
+
+
+style={{backgroundColor: props.mode === 'light' ? 'white' : 'grey'}}
+outer bracket---------------------------------->JS
+inner bracket---------------------------------->object ke liye
+
+
+
+props.mode Doesn't Exist or Changes Dynamically:
+Problem: If props.mode isn't passed into the component or if props.mode changes dynamically after the component is rendered, the initial value of myStyle.backgroundColor will not update automatically.
+Solution: Use the useEffect hook to dynamically update myStyle when props.mode changes:
+javascript
+
